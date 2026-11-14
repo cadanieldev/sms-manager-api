@@ -10,7 +10,7 @@ import lombok.*;
 @Entity
 @Builder
 @Table(name = "historico")
-public class smsHistory {
+public class SmsHistory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,4 +21,7 @@ public class smsHistory {
     private String statusMensagem;
     @Column(name = "descricao")
     private String descricao;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "sms_message_id", nullable = false)
+    private SmsMessage smsMessage;
 }
