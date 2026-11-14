@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -12,7 +14,7 @@ import java.time.LocalDateTime;
 @Entity
 @Builder
 @Table(name = "mensagem")
-public class smsMessage {
+public class SmsMessage {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,5 +31,8 @@ public class smsMessage {
     private LocalDateTime dataCriada;
     @Column(name = "ultimaData")
     private LocalDateTime ultimaData;
+    @OneToMany(mappedBy = "smsMessage")
+    @Builder.Default
+    private List<SmsHistory> historicos = new ArrayList<>();
 
 }
