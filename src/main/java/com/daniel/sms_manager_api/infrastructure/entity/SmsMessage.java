@@ -1,5 +1,6 @@
 package com.daniel.sms_manager_api.infrastructure.entity;
 
+import com.daniel.sms_manager_api.infrastructure.enums.SmsStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -25,8 +26,9 @@ public class SmsMessage {
     private String numeroDestinatario;
     @Column(name = "mensagem")
     private String mensagem;
+    @Enumerated(EnumType.STRING)
     @Column(name = "status")
-    private String status;
+    private SmsStatus status;
     @Column(name = "dataCriada")
     private LocalDateTime dataCriada;
     @Column(name = "ultimaData")
