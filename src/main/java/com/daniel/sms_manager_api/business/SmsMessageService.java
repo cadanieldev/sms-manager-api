@@ -34,4 +34,9 @@ public class SmsMessageService {
             return repository.save(sms);
         }
 
+        public SmsMessage consultarMensagem(Long id){
+            //Buscar
+            return repository.findById(id).orElseThrow(() -> new RuntimeException("Mensagem não encontrada"));
+        }
+
 }
