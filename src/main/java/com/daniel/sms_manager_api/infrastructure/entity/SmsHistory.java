@@ -15,13 +15,11 @@ public class SmsHistory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "smsMensagem")
-    private String smsMensagem;
     @Column(name = "statusMessagem")
     private String statusMensagem;
     @Column(name = "descricao")
     private String descricao;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "sms_message_id", nullable = false)
     private SmsMessage smsMessage;
 }
