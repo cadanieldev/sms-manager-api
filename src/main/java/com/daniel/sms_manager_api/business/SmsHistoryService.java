@@ -27,7 +27,7 @@ public class SmsHistoryService {
         history.setStatusMensagem(dto.getStatusMensagem());
         history.setDescricao(dto.getDescricao());
 
-        //Persistir o historico
+        //Relacionando-se com a entidade SmsMessage
         history.setSmsMessage(sms);
 
         //Salvar no repository
