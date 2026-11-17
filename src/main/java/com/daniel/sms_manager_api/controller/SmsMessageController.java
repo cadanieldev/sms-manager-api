@@ -44,4 +44,10 @@ public class SmsMessageController {
                                               @RequestBody SmsStatus status){
         return ResponseEntity.ok(service.alterarStatus(status, id));
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deletar(@PathVariable Long id){
+       service.deletaMensagem(id);
+       return ResponseEntity.noContent().build();
+    }
 }
