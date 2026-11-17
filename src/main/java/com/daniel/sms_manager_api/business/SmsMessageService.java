@@ -58,4 +58,9 @@ public class SmsMessageService {
             return repository.save(sms);
         }
 
+        public void deletaMensagem(Long id){
+            SmsMessage sms = repository.findById(id).orElseThrow(() -> new RuntimeException("Mensagem não encontrada."));
+            repository.delete(sms);
+        }
+
 }
